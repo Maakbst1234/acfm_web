@@ -114,7 +114,7 @@ export function LogoOpening() {
                 initial={{ opacity: 0, filter: "blur(6px)", scale: 0.8 }}
                 animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
                 transition={{ delay: 2.6, duration: 1.2, ease: "easeOut" }}
-                src="/src/imports/acfm_final_logo_only.png" 
+                src="/imports/acfm_final_logo_only.png" 
                 alt="ACFM" 
                 className="absolute inset-0 w-full h-full object-contain drop-shadow-[0_20px_40px_rgba(20,61,67,0.3)] z-10"
               />

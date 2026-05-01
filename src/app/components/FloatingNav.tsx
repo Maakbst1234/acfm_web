@@ -53,7 +53,7 @@ export function FloatingNav({ activeSection }: FloatingNavProps) {
             className="flex items-center gap-3 cursor-pointer group"
           >
             <div className="w-14 h-14 rounded-xl bg-white flex items-center justify-center shadow-sm border border-accent/10 group-hover:scale-110 transition-transform duration-500">
-              <img src="/src/imports/acfm_final_logo_only.png" className="w-10 h-10 object-contain" alt="ACFM Logo" />
+              <img src="/imports/acfm_final_logo_only.png" className="w-10 h-10 object-contain" alt="ACFM Logo" />
             </div>
             <div className="hidden sm:block">
               <p className="font-black text-[12px] tracking-tight text-primary leading-tight">

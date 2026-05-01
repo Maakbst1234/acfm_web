@@ -176,7 +176,7 @@ export default function App() {
             <div className="md:col-span-2">
                <div className="flex items-center gap-4 mb-6">
                  <div className="w-16 h-16 rounded-2xl bg-white flex items-center justify-center shadow-md border border-accent/10">
-                    <img src="/src/imports/acfm_final_logo_only.png" className="w-12 h-12 object-contain" alt="ACFM Logo" />
+                    <img src="/imports/acfm_final_logo_only.png" className="w-12 h-12 object-contain" alt="ACFM Logo" />
                  </div>
                  <div>
                     <p className="font-black text-xs tracking-tight text-primary">ARABIAN COMFORT</p>

@@ -78,7 +78,7 @@ export function ClientLogos() {
               className="w-48 md:w-60 h-28 shrink-0 flex items-center justify-center p-2 bg-white rounded-2xl shadow-sm border border-accent/10 hover:shadow-xl transition-all duration-500 cursor-pointer group/item"
             >
               <img
-                src={`/src/imports/client_logos/${logo}`}
+                src={`/imports/client_logos/${logo}`}
                 alt={`Client Logo ${index}`}
                 className="w-full h-full object-contain filter grayscale opacity-50 group-hover/item:grayscale-0 group-hover/item:opacity-100 transition-all duration-500"
               />
