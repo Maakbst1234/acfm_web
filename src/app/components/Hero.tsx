@@ -1,6 +1,26 @@
-import { motion, useScroll, useTransform } from 'motion/react';
+import { motion, useScroll, useTransform, animate, useInView, useMotionValue } from 'motion/react';
 import { ArrowRight, Shield, CheckCircle2, Users } from 'lucide-react';
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
+import { Ribbons } from './Ribbons';
+
+function CountUp({ to, suffix }: { to: number; suffix: string }) {
+  const count = useMotionValue(0);
+  const rounded = useTransform(count, (latest) => Math.round(latest) + suffix);
+  const nodeRef = useRef<HTMLSpanElement>(null);
+  const inView = useInView(nodeRef, { once: true, amount: 0.5 });
+
+  useEffect(() => {
+    if (inView) {
+      const controls = animate(count, to, {
+        duration: 2,
+        ease: "easeOut"
+      });
+      return () => controls.stop();
+    }
+  }, [inView, to, count]);
+
+  return <motion.span ref={nodeRef}>{rounded}</motion.span>;
+}
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -9,22 +29,30 @@ export function Hero() {
     offset: ["start start", "end start"]
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
+  const y = useTransform(scrollYProgress, [0, 1], ['50px', '-100px']);
   const opacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
 
   return (
     <div ref={containerRef} className="relative w-full overflow-hidden bg-white">
-      {/* Dynamic Background Grid/Glow */}
-      <div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
-        <div className="absolute top-[-10%] right-[-5%] w-[40vw] h-[40vw] min-w-[400px] bg-accent/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[20%] left-[-5%] w-[35vw] h-[35vw] min-w-[300px] bg-primary/10 rounded-full blur-[100px]" />
+      {/* Dynamic Background */}
+      <div className="absolute inset-0 z-0 opacity-60 pointer-events-none">
+        <Ribbons
+          baseThickness={40}
+          colors={['#143D43', '#52B8B1', '#E8F5F5']} 
+          speedMultiplier={0.5}
+          maxAge={600}
+          enableFade={true}
+          enableShaderEffect={true}
+          effectAmplitude={1.5}
+          backgroundColor={[0, 0, 0, 0]}
+        />
         <div className="absolute inset-0" style={{ 
           backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(20,61,67,0.04) 1px, transparent 0)',
           backgroundSize: 'clamp(24px, 4vw, 48px) clamp(24px, 4vw, 48px)'
         }} />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-32 pb-20 md:pt-48 md:pb-32 flex flex-col items-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-16 pb-10 md:pt-24 md:pb-16 flex flex-col items-center">
         {/* Trust Badge */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -36,24 +64,37 @@ export function Hero() {
           <span>UAE Premier Facility Management Partner</span>
         </motion.div>
 
-        {/* Main Heading with Responsive Font Scaling */}
-        <motion.h1
+        {/* Main Heading with Quote Type Font */}
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="text-primary font-black mb-8 max-w-5xl leading-[1.1] text-center tracking-tight"
-          style={{ fontSize: 'clamp(2.5rem, 8vw, 6rem)' }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="relative mb-12 text-center"
         >
-          Where Your Workforce <br />
-          <span className="text-accent italic">Lives Better</span>
-        </motion.h1>
+          {/* Decorative Opening Quote */}
+          <span className="absolute -top-12 -left-4 md:-left-12 text-accent/10 text-[120px] md:text-[180px] font-serif select-none pointer-events-none">“</span>
+          
+          <h1
+            className="text-primary font-light max-w-5xl leading-[1] tracking-tight relative z-10"
+            style={{ 
+              fontSize: 'clamp(2.5rem, 9vw, 6.5rem)',
+              fontFamily: '"Cormorant Garamond", serif'
+            }}
+          >
+            Your Comfort <br />
+            <span className="text-accent italic font-medium">Our Commitment</span>
+          </h1>
+
+          {/* Decorative Closing Quote */}
+          <span className="absolute -bottom-24 -right-4 md:-right-12 text-accent/10 text-[120px] md:text-[180px] font-serif select-none pointer-events-none">”</span>
+        </motion.div>
 
         {/* Subtext */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-muted-foreground text-lg md:text-2xl max-w-3xl mb-12 leading-relaxed text-center"
+          className="text-muted-foreground text-lg md:text-2xl max-w-3xl mb-6 leading-relaxed text-center"
         >
           Premium managed accommodation for corporate teams — fully compliant with UAE regulations, ADNOC standards, and ISO requirements. Because a well-rested team is a high-performing team.
         </motion.p>
@@ -63,12 +104,12 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-24 w-full"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 w-full"
         >
           <motion.button
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => document.getElementById('rooms')?.scrollIntoView({ behavior: 'smooth' })}
             className="w-full sm:w-auto px-10 py-5 bg-primary text-white font-bold rounded-2xl shadow-xl shadow-primary/20 flex items-center justify-center gap-3 text-lg"
           >
             Explore Accommodation
@@ -87,43 +128,49 @@ export function Hero() {
           </motion.button>
         </motion.div>
 
-        {/* Floating Feature Strip - Fixed Layout */}
+        {/* Floating Stats Strip */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-2 py-8 px-10 bg-white/60 backdrop-blur-xl rounded-[32px] border border-accent/10 shadow-2xl relative z-20"
+          className="w-full max-w-5xl grid grid-cols-2 md:grid-cols-4 gap-6 py-8 px-6 bg-white/70 backdrop-blur-xl rounded-[32px] border border-accent/10 shadow-2xl relative z-20"
         >
           {[
-            { icon: CheckCircle2, label: '100% Compliance', sub: 'ADNOC & HACCP' },
-            { icon: Users, label: '3,000+ Residents', sub: 'Managed Daily' },
-            { icon: Shield, label: '24/7 Support', sub: 'HSE & Maintenance' }
-          ].map((item, i) => (
-            <div key={i} className="flex items-center gap-4 text-left p-2 border-b md:border-b-0 md:border-r border-accent/5 last:border-0 last:border-r-0">
-              <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center shrink-0">
-                <item.icon className="w-6 h-6 text-accent" />
-              </div>
-              <div className="min-w-0">
-                <p className="font-bold text-primary leading-none mb-1 truncate">{item.label}</p>
-                <p className="text-sm text-muted-foreground truncate">{item.sub}</p>
-              </div>
+            { value: 3500, suffix: '+', label: 'Residents', sub: 'Managed Daily' },
+            { value: 20, suffix: '+', label: 'Clients', sub: 'Partnered With' },
+            { value: 10, suffix: '+', label: 'Services', sub: 'Integrated' },
+            { value: 100, suffix: '%', label: 'UAE & ADNOC', sub: 'Compliant' }
+          ].map((stat, i) => (
+            <div key={i} className="flex flex-col items-center md:items-start text-center md:text-left border-accent/10 md:border-r last:border-0 md:px-4">
+              <p className="text-3xl lg:text-4xl font-black text-accent mb-1 tracking-tighter">
+                <CountUp to={stat.value} suffix={stat.suffix} />
+              </p>
+              <p className="font-bold text-primary uppercase tracking-widest text-[9px] mb-1">{stat.label}</p>
+              <p className="text-muted-foreground text-[10px] hidden lg:block">{stat.sub}</p>
             </div>
           ))}
         </motion.div>
       </div>
 
-      {/* Decorative Interactive Image - Better Zoom Stability */}
-      <div className="relative w-full max-w-7xl mx-auto px-6 -mt-16 md:-mt-24 mb-20 z-0">
-        <motion.div 
-          style={{ y, opacity }}
-          className="w-full aspect-[21/9] min-h-[300px] rounded-[40px] overflow-hidden shadow-2xl border-[8px] md:border-[12px] border-secondary relative"
+      {/* Decorative Interactive Image with entrance and parallax */}
+      <div className="relative w-full max-w-7xl mx-auto px-6 mt-6 mb-10 z-0">
+        <motion.div
+          initial={{ opacity: 0, y: 120 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
         >
-          <img 
-            src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600&auto=format&fit=crop" 
-            alt="Modern Facility" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-transparent" />
+          <motion.div 
+            style={{ y, opacity }}
+            className="w-full aspect-[21/9] min-h-[300px] rounded-[40px] overflow-hidden shadow-2xl border-[8px] md:border-[12px] border-secondary relative"
+          >
+            <img 
+              src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600&auto=format&fit=crop" 
+              alt="Modern Facility" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-transparent" />
+          </motion.div>
         </motion.div>
       </div>
     </div>

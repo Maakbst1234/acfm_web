@@ -129,7 +129,7 @@ export function DiningSection() {
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1, type: "spring" }}
-        className="text-center mb-20 px-6"
+        className="text-center mb-10 px-6"
       >
         <span className="text-accent font-black uppercase tracking-widest text-[10px] mb-4 block">Catering Excellence</span>
         <h2 className="text-5xl lg:text-7xl mb-8 tracking-tight text-primary font-black">
@@ -149,7 +149,7 @@ export function DiningSection() {
       </motion.div>
 
       {/* Featured Dining */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-24 relative">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 relative">
         <motion.div
           initial={{ opacity: 0, x: -60, rotateY: -15 }}
           whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
@@ -172,7 +172,7 @@ export function DiningSection() {
             <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/20 to-transparent" />
             
             <motion.div 
-               className="absolute bottom-0 left-0 right-0 p-12"
+               className="absolute bottom-0 left-0 right-0 p-8"
                style={{ transform: 'translateZ(50px)' }}
             >
               <motion.div
@@ -195,46 +195,45 @@ export function DiningSection() {
             </motion.div>
           </motion.div>
         </motion.div>
-
-        <div className="flex flex-col gap-8 justify-center">
+        <div className="flex flex-col gap-8 h-[600px]">
           {/* Dining Info Cards with 3D Hover */}
           <motion.div
             initial={{ opacity: 0, x: 60 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, type: "spring", bounce: 0.3 }}
-            whileHover={{ scale: 1.05, rotateY: -5, rotateX: 5 }}
-            className="p-10 bg-card border border-foreground/5 shadow-xl hover:shadow-2xl transition-all duration-500 group relative overflow-hidden"
+            whileHover={{ scale: 1.02, rotateY: -5, rotateX: 2 }}
+            className="flex-1 p-10 bg-card border border-foreground/5 shadow-xl hover:shadow-2xl transition-all duration-500 group relative overflow-hidden flex flex-col justify-center rounded-sm"
             style={{ perspective: '1000px', transformStyle: 'preserve-3d' }}
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-[100px] -z-10 group-hover:scale-150 transition-transform duration-500" />
             <motion.div style={{ transform: 'translateZ(20px)' }}>
-              <Clock className="w-12 h-12 text-accent mb-6 group-hover:-rotate-12 transition-transform duration-500" />
-              <h4 className="text-3xl mb-4 font-black text-primary">Service Times</h4>
-              <div className="space-y-3 text-muted-foreground text-base font-bold">
+              <Clock className="w-10 h-10 text-accent mb-6 group-hover:-rotate-12 transition-transform duration-500" />
+              <h4 className="text-2xl lg:text-3xl mb-4 font-black text-primary">Service Times</h4>
+              <div className="space-y-3 text-muted-foreground text-sm font-bold">
                 <p className="flex justify-between border-b border-primary/5 pb-2"><span>Breakfast</span> <span className="text-primary tracking-wider">7:00 AM - 11:00 AM</span></p>
                 <p className="flex justify-between border-b border-primary/5 pb-2"><span>Lunch</span> <span className="text-primary tracking-wider">12:00 PM - 3:00 PM</span></p>
                 <p className="flex justify-between pb-2"><span>Dinner</span> <span className="text-primary tracking-wider">6:00 PM - 11:00 PM</span></p>
               </div>
             </motion.div>
           </motion.div>
-
+ 
           <motion.div
             initial={{ opacity: 0, x: 60 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1, type: "spring", bounce: 0.3 }}
-            whileHover={{ scale: 1.05, rotateY: -5, rotateX: -5 }}
-            className="p-10 bg-primary border-none shadow-2xl transition-all duration-500 group relative overflow-hidden"
+            whileHover={{ scale: 1.02, rotateY: -5, rotateX: -2 }}
+            className="flex-1 p-10 bg-primary border-none shadow-2xl transition-all duration-500 group relative overflow-hidden flex flex-col justify-center rounded-sm"
             style={{ perspective: '1000px', transformStyle: 'preserve-3d' }}
           >
             {/* Ambient light effect inside card */}
             <div className="absolute -top-20 -right-20 w-64 h-64 bg-accent/20 blur-3xl rounded-full" />
             
             <motion.div style={{ transform: 'translateZ(30px)' }}>
-              <Star className="w-12 h-12 text-accent mb-6 group-hover:rotate-[360deg] transition-transform duration-500" />
-              <h4 className="text-3xl mb-4 font-black text-white">Global Cuisines</h4>
-              <p className="text-white/80 leading-relaxed text-base font-medium">
+              <Star className="w-10 h-10 text-accent mb-6 group-hover:rotate-[360deg] transition-transform duration-500" />
+              <h4 className="text-2xl lg:text-3xl mb-4 font-black text-white">Global Cuisines</h4>
+              <p className="text-white/80 leading-relaxed text-sm font-medium">
                 Whether your team craves Indian, Arabic, Filipino, or Continental cuisine, our menu rotates to ensure variety and satisfaction every single day.
               </p>
             </motion.div>
@@ -243,12 +242,12 @@ export function DiningSection() {
       </div>
 
       {/* Menu Showcase */}
-      <div className="relative py-16">
+      <div className="relative py-8">
         <motion.h3
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl lg:text-5xl mb-16 text-center font-semibold"
+          className="text-4xl lg:text-5xl mb-8 text-center font-semibold"
         >
           Signature Dishes
         </motion.h3>

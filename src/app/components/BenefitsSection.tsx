@@ -42,9 +42,9 @@ const benefits = [
 
 export function BenefitsSection() {
   return (
-    <section id="benefits" className="bg-secondary/30 relative overflow-hidden py-32">
+    <section id="benefits" className="bg-secondary/30 relative overflow-hidden pt-6 pb-16">
       <div className="container-limited relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-8">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
