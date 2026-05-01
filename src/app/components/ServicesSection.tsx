@@ -42,7 +42,7 @@ const servicePillars = [
 
 export function ServicesSection() {
   return (
-    <section id="services" className="bg-white relative overflow-hidden pt-6 pb-16">
+    <section id="services" className="bg-white relative overflow-hidden pt-4 pb-8">
       {/* Background Decor */}
       <div className="absolute top-0 right-0 w-[40vw] h-[40vw] bg-accent/2 rounded-full blur-[100px] -mr-40 -mt-40 opacity-40 pointer-events-none" />
       

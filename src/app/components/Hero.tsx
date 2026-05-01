@@ -29,7 +29,7 @@ export function Hero() {
     offset: ["start start", "end start"]
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ['50px', '-100px']);
+  const y = useTransform(scrollYProgress, [0, 1], ['0px', '-100px']);
   const opacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
 
   return (
@@ -153,7 +153,7 @@ export function Hero() {
       </div>
 
       {/* Decorative Interactive Image with entrance and parallax */}
-      <div className="relative w-full max-w-7xl mx-auto px-6 mt-6 mb-10 z-0">
+      <div className="relative w-full max-w-7xl mx-auto px-6 mt-4 mb-4 z-0">
         <motion.div
           initial={{ opacity: 0, y: 120 }}
           whileInView={{ opacity: 1, y: 0 }}

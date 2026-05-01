@@ -89,7 +89,7 @@ export function AboutSection() {
         </div>
 
         {/* Mission & Vision Integration */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 pt-8 border-t border-accent/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 pt-4 border-t border-accent/10">
           {/* Mission Card */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}

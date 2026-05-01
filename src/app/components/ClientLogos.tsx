@@ -23,12 +23,12 @@ const logos = [
 
 export function ClientLogos() {
   return (
-    <section className="py-20 bg-secondary/30 overflow-hidden relative border-y border-accent/10">
+    <section className="py-8 bg-secondary/30 overflow-hidden relative border-y border-accent/10">
       <div className="absolute inset-0 z-0 opacity-40 pointer-events-none" style={{
         backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(20,61,67,0.04) 1px, transparent 0)',
         backgroundSize: '40px 40px'
       }} />
-      <div className="max-w-7xl mx-auto px-6 mb-12 relative z-10 text-center">
+      <div className="max-w-7xl mx-auto px-6 mb-6 relative z-10 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -48,7 +48,7 @@ export function ClientLogos() {
         </motion.h2>
       </div>
 
-      <div className="relative flex overflow-hidden py-8 marquee-container">
+      <div className="relative flex overflow-hidden py-4 marquee-container">
         <style dangerouslySetInnerHTML={{
           __html: `
           @keyframes marquee {

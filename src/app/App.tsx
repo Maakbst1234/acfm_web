@@ -71,11 +71,11 @@ export default function App() {
 
         <ClientLogos />
 
-        <section id="about" className="py-12">
+        <section id="about" className="py-6">
           <AboutSection />
         </section>
 
-        <section id="rooms" className="py-12 bg-secondary/10">
+        <section id="rooms" className="py-6 bg-secondary/10">
           <div className="container-limited">
             <div className="text-center mb-16">
               <span className="text-accent font-black uppercase tracking-widest text-[10px] mb-4 block">Our Accommodation</span>
@@ -88,7 +88,7 @@ export default function App() {
           </div>
         </section>
 
-        <section className="py-8">
+        <section className="py-4">
           <div className="container-limited">
             <DiningSection />
           </div>
@@ -98,7 +98,7 @@ export default function App() {
           <FacilityGrid />
         </section>
 
-        <section id="services" className="pt-0 pb-8">
+        <section id="services" className="pt-0 pb-4">
           <ServicesSection />
         </section>
 

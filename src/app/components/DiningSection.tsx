@@ -242,7 +242,7 @@ export function DiningSection() {
       </div>
 
       {/* Menu Showcase */}
-      <div className="relative py-8">
+      <div className="relative py-4">
         <motion.h3
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
