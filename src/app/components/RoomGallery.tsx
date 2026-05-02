@@ -66,7 +66,7 @@ function RoomCard({ room, index }: { room: typeof rooms[0], index: number }) {
       onHoverStart={() => setIsHovered(true)}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative group h-[580px] md:h-[680px] cursor-pointer"
+      className="relative group h-[620px] md:h-[700px] cursor-pointer"
       style={{
         perspective: '1500px'
       }}
@@ -83,7 +83,7 @@ function RoomCard({ room, index }: { room: typeof rooms[0], index: number }) {
         }}
       >
         {/* Top Image Section */}
-        <div className="h-[65%] relative overflow-hidden" style={{ transform: 'translateZ(10px)' }}>
+        <div className="h-[60%] relative overflow-hidden" style={{ transform: 'translateZ(10px)' }}>
           <motion.img
             src={room.image}
             alt={room.name}
@@ -104,7 +104,7 @@ function RoomCard({ room, index }: { room: typeof rooms[0], index: number }) {
         </div>
 
         {/* Bottom Content Section */}
-        <div className="flex-1 flex flex-col px-8 py-6 bg-white relative" style={{ transform: 'translateZ(20px)' }}>
+        <div className="flex-1 flex flex-col px-8 py-8 bg-white relative" style={{ transform: 'translateZ(20px)' }}>
           <h3 
             className="text-xl lg:text-2xl mb-1 text-primary font-black transition-colors duration-500 group-hover:text-accent" 
             style={{ transform: 'translateZ(30px)' }}

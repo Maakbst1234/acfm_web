@@ -1,15 +1,41 @@
 import { motion } from 'motion/react';
+import { useState, useEffect, useRef } from 'react';
 import clients from '../../content/clients.json';
 
 const logos = clients.logos;
 
 export function ClientLogos() {
+  const [isPaused, setIsPaused] = useState(false);
+  const [activeLogoIndex, setActiveLogoIndex] = useState<number | null>(null);
+  const pauseTimerRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleInteraction = (index: number) => {
+    // Clear any existing timer
+    if (pauseTimerRef.current) clearTimeout(pauseTimerRef.current);
+
+    setIsPaused(true);
+    setActiveLogoIndex(index);
+
+    // Resume after 1 second
+    pauseTimerRef.current = setTimeout(() => {
+      setIsPaused(false);
+      setActiveLogoIndex(null);
+    }, 1000);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (pauseTimerRef.current) clearTimeout(pauseTimerRef.current);
+    };
+  }, []);
+
   return (
     <section className="py-8 bg-secondary/30 overflow-hidden relative border-y border-accent/10">
       <div className="absolute inset-0 z-0 opacity-40 pointer-events-none" style={{
         backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(20,61,67,0.04) 1px, transparent 0)',
         backgroundSize: '40px 40px'
       }} />
+      
       <div className="max-w-7xl mx-auto px-6 mb-6 relative z-10 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -30,7 +56,7 @@ export function ClientLogos() {
         </motion.h2>
       </div>
 
-      <div className="relative flex overflow-hidden py-4 marquee-container">
+      <div className="relative flex overflow-hidden py-4">
         <style dangerouslySetInnerHTML={{
           __html: `
           @keyframes marquee {
@@ -38,14 +64,9 @@ export function ClientLogos() {
             100% { transform: translateX(-50%); }
           }
           .animate-marquee {
-            animation: marquee 60s linear infinite;
+            animation: marquee 50s linear infinite;
             display: flex;
             width: max-content;
-          }
-          @media (hover: hover) {
-            .marquee-container:hover .animate-marquee {
-              animation-play-state: paused;
-            }
           }
         `}} />
 
@@ -53,18 +74,27 @@ export function ClientLogos() {
         <div className="absolute top-0 bottom-0 left-0 w-24 md:w-48 bg-gradient-to-r from-secondary to-transparent z-10 pointer-events-none" />
         <div className="absolute top-0 bottom-0 right-0 w-24 md:w-48 bg-gradient-to-l from-secondary to-transparent z-10 pointer-events-none" />
 
-        <div className="animate-marquee flex whitespace-nowrap gap-8 md:gap-12 pl-8 md:pl-12 items-center">
-          {/* Double array for seamless loop across to 50% */}
-          {[...logos, ...logos].map((logo, index) => (
+        <div 
+          className="animate-marquee flex whitespace-nowrap gap-8 md:gap-12 pl-8 md:pl-12 items-center"
+          style={{ animationPlayState: isPaused ? 'paused' : 'running' }}
+        >
+          {/* Tripled array for seamless infinite loop */}
+          {[...logos, ...logos, ...logos].map((logo, index) => (
             <motion.div
               key={index}
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="w-48 md:w-60 h-28 shrink-0 flex items-center justify-center p-2 bg-white rounded-2xl shadow-sm border border-accent/10 hover:shadow-xl transition-all duration-500 cursor-pointer group/item"
+              onMouseEnter={() => handleInteraction(index)}
+              onTouchStart={() => handleInteraction(index)}
+              whileHover={{ scale: 1.05 }}
+              className="w-48 md:w-60 h-28 shrink-0 flex items-center justify-center p-4 bg-white rounded-[32px] shadow-sm border border-accent/10 hover:shadow-xl transition-all duration-500 cursor-pointer group"
             >
               <img
                 src={logo.logo}
-                alt={`Client Logo ${index}`}
-                className="w-full h-full object-contain filter grayscale opacity-50 group-hover/item:grayscale-0 group-hover/item:opacity-100 transition-all duration-500"
+                alt="Partner Logo"
+                className={`w-full h-full object-contain transition-all duration-700 ${
+                  activeLogoIndex === index 
+                    ? 'grayscale-0 opacity-100 scale-110' 
+                    : 'grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100'
+                }`}
               />
             </motion.div>
           ))}

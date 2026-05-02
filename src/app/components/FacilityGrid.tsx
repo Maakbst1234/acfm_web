@@ -99,7 +99,7 @@ export function FacilityGrid() {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative z-10 w-full flex flex-col justify-center pt-24 md:pt-10 pb-20 bg-secondary/10">
+    <div ref={containerRef} className="relative z-10 w-full flex flex-col justify-center pt-20 md:pt-10 pb-12 bg-secondary/10">
       {/* Integrated Header */}
       <div className="container-limited text-center mb-6">
         <span className="text-accent font-black uppercase tracking-widest text-[10px] mb-4 block">Our Facilities</span>
@@ -117,7 +117,7 @@ export function FacilityGrid() {
               key={index}
               transition={{ duration: 0.6, delay: 0.1 }}
               whileHover={{ y: -12 }}
-              className="group relative h-[520px] w-[85vw] sm:w-[380px] shrink-0 flex flex-col bg-white rounded-[40px] shadow-xl hover:shadow-[0_40px_80px_-20px_rgba(20,61,67,0.15)] transition-all duration-700 overflow-hidden border border-primary/5"
+              className="group relative h-[460px] md:h-[520px] w-[85vw] sm:w-[380px] shrink-0 flex flex-col bg-white rounded-[40px] shadow-xl hover:shadow-[0_40px_80px_-20px_rgba(20,61,67,0.15)] transition-all duration-700 overflow-hidden border border-primary/5"
               style={{ perspective: '1500px' }}
             >
               {/* Main Visual Header */}
