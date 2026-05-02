@@ -66,7 +66,7 @@ function RoomCard({ room, index }: { room: typeof rooms[0], index: number }) {
       onHoverStart={() => setIsHovered(true)}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative group h-[680px] cursor-pointer"
+      className="relative group h-[580px] md:h-[680px] cursor-pointer"
       style={{
         perspective: '1500px'
       }}

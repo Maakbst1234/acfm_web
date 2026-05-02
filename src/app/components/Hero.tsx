@@ -159,7 +159,7 @@ export function Hero() {
         >
           <motion.div 
             style={{ y, opacity }}
-            className="w-full aspect-[21/9] min-h-[300px] rounded-[40px] overflow-hidden shadow-2xl border-[8px] md:border-[12px] border-secondary relative"
+            className="w-full aspect-[16/10] md:aspect-[21/9] min-h-[250px] rounded-[40px] overflow-hidden shadow-2xl border-[8px] md:border-[12px] border-secondary relative"
           >
             <img 
               src={hero.backgroundImage} 
