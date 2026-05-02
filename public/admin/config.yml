@@ -2,7 +2,7 @@ backend:
   name: github
   repo: Maakbst1234/arabiancomfort_web
   branch: main
-  base_url: https://acfm-web.vercel.app
+  base_url: https://arabiancomfortweb.vercel.app
   auth_endpoint: api/auth
 
 media_folder: public/images/uploads
