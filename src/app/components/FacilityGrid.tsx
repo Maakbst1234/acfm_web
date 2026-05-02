@@ -76,16 +76,17 @@ export function FacilityGrid() {
           gsap.to(scrollWrapperRef.current, {
             x: () => -(scrollWidth - viewportWidth),
             ease: "none",
-            scrollTrigger: {
-              trigger: containerRef.current,
-              start: "top top",
-              pin: true,
-              scrub: 1,
-              anticipatePin: 1,
-              // End is proportional to the scroll width
-              end: () => "+=" + (scrollWidth),
-              invalidateOnRefresh: true,
-            }
+              scrollTrigger: {
+                trigger: containerRef.current,
+                start: "top top",
+                pin: true,
+                scrub: 1,
+                anticipatePin: 1,
+                // End is proportional to the scroll width
+                end: () => "+=" + (scrollWidth),
+                invalidateOnRefresh: true,
+                refreshPriority: 1
+              }
           });
         }
       });
@@ -98,7 +99,7 @@ export function FacilityGrid() {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative w-full flex flex-col justify-center pt-10 pb-20 bg-secondary/10">
+    <div ref={containerRef} className="relative z-10 w-full flex flex-col justify-center pt-24 md:pt-10 pb-20 bg-secondary/10">
       {/* Integrated Header */}
       <div className="container-limited text-center mb-6">
         <span className="text-accent font-black uppercase tracking-widest text-[10px] mb-4 block">Our Facilities</span>
