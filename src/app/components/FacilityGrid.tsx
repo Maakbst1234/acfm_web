@@ -132,24 +132,19 @@ export function FacilityGrid() {
                 <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
               </div>
 
-              {/* Overlapping Icon Capsule */}
-              <div className="absolute top-[70%] left-10 -translate-y-1/2 z-20">
-                <div className="w-20 h-20 bg-white rounded-[28px] shadow-2xl flex items-center justify-center border border-accent/10 group-hover:bg-accent group-hover:border-accent group-hover:rotate-[15deg] transition-all duration-500 ease-out">
-                  <facility.icon className="w-10 h-10 text-accent group-hover:text-white transition-all duration-500" />
-                </div>
-              </div>
+
 
               {/* Bottom Content Area */}
-              <div className="flex-1 px-8 pt-16 pb-8 flex flex-col justify-start bg-white relative">
+              <div className="flex-1 px-8 pt-8 pb-8 flex flex-col justify-start bg-white relative">
                 <div className="absolute bottom-0 right-0 w-32 h-32 bg-accent/[0.02] rounded-tl-[100px] pointer-events-none" />
                 <h4 className="text-2xl font-black text-primary mb-3 group-hover:text-accent transition-colors duration-300">{facility.title}</h4>
                 <p className="text-muted-foreground text-[14px] leading-relaxed font-medium line-clamp-3 mb-6">{facility.description}</p>
                 
                 <div className="mt-auto flex items-center justify-between pt-4 border-t border-primary/5">
-                  <div className="flex gap-1.5">
-                    <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                    <div className="w-2 h-2 rounded-full bg-accent/30" />
-                    <div className="w-2 h-2 rounded-full bg-accent/10" />
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-accent/5 flex items-center justify-center border border-accent/10 group-hover:bg-accent group-hover:border-accent transition-all duration-500">
+                      <facility.icon className="w-5 h-5 text-accent group-hover:text-white transition-all duration-500" />
+                    </div>
                   </div>
                   <span className="text-[10px] font-black uppercase tracking-widest text-primary/30 group-hover:text-accent transition-colors">Premium Facility</span>
                 </div>
