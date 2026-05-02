@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: sanjidtk/acfm_web
+  repo: Maakbst1234/arabiancomfort_web
   branch: main
   base_url: https://acfm-web.vercel.app
   auth_endpoint: api/auth
