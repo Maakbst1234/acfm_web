@@ -116,11 +116,11 @@ export function FacilityGrid() {
               key={index}
               transition={{ duration: 0.6, delay: 0.1 }}
               whileHover={{ y: -12 }}
-              className="group relative h-[400px] w-[85vw] sm:w-[380px] shrink-0 flex flex-col bg-white rounded-[40px] shadow-xl hover:shadow-[0_40px_80px_-20px_rgba(20,61,67,0.15)] transition-all duration-700 overflow-hidden border border-primary/5"
+              className="group relative h-[620px] w-[85vw] sm:w-[380px] shrink-0 flex flex-col bg-white rounded-[40px] shadow-xl hover:shadow-[0_40px_80px_-20px_rgba(20,61,67,0.15)] transition-all duration-700 overflow-hidden border border-primary/5"
               style={{ perspective: '1500px' }}
             >
               {/* Main Visual Header */}
-              <div className="h-[50%] relative overflow-hidden">
+              <div className="h-[65%] relative overflow-hidden">
                 <motion.img
                   src={facility.image}
                   alt={facility.title}
@@ -133,7 +133,7 @@ export function FacilityGrid() {
               </div>
 
               {/* Overlapping Icon Capsule */}
-              <div className="absolute top-[50%] left-10 -translate-y-1/2 z-20">
+              <div className="absolute top-[70%] left-10 -translate-y-1/2 z-20">
                 <div className="w-20 h-20 bg-white rounded-[28px] shadow-2xl flex items-center justify-center border border-accent/10 group-hover:bg-accent group-hover:border-accent group-hover:rotate-[15deg] transition-all duration-500 ease-out">
                   <facility.icon className="w-10 h-10 text-accent group-hover:text-white transition-all duration-500" />
                 </div>
