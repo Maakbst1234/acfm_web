@@ -98,7 +98,7 @@ export function FacilityGrid() {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative w-full flex flex-col justify-center py-6 bg-secondary/10">
+    <div ref={containerRef} className="relative w-full flex flex-col justify-center pt-10 pb-20 bg-secondary/10">
       {/* Integrated Header */}
       <div className="container-limited text-center mb-6">
         <span className="text-accent font-black uppercase tracking-widest text-[10px] mb-4 block">Our Facilities</span>
@@ -109,14 +109,14 @@ export function FacilityGrid() {
       </div>
 
       {/* Horizontal Scroll Content */}
-      <div className="w-full overflow-hidden">
+      <div className="w-full overflow-hidden pt-12 pb-6">
         <div ref={scrollWrapperRef} className="flex gap-10 flex-nowrap w-max px-[10vw]">
           {facilities.map((facility, index) => (
             <motion.div
               key={index}
               transition={{ duration: 0.6, delay: 0.1 }}
               whileHover={{ y: -12 }}
-              className="group relative h-[620px] w-[85vw] sm:w-[380px] shrink-0 flex flex-col bg-white rounded-[40px] shadow-xl hover:shadow-[0_40px_80px_-20px_rgba(20,61,67,0.15)] transition-all duration-700 overflow-hidden border border-primary/5"
+              className="group relative h-[520px] w-[85vw] sm:w-[380px] shrink-0 flex flex-col bg-white rounded-[40px] shadow-xl hover:shadow-[0_40px_80px_-20px_rgba(20,61,67,0.15)] transition-all duration-700 overflow-hidden border border-primary/5"
               style={{ perspective: '1500px' }}
             >
               {/* Main Visual Header */}
@@ -140,7 +140,7 @@ export function FacilityGrid() {
               </div>
 
               {/* Bottom Content Area */}
-              <div className="flex-1 px-8 pt-10 pb-8 flex flex-col justify-start bg-white relative">
+              <div className="flex-1 px-8 pt-16 pb-8 flex flex-col justify-start bg-white relative">
                 <div className="absolute bottom-0 right-0 w-32 h-32 bg-accent/[0.02] rounded-tl-[100px] pointer-events-none" />
                 <h4 className="text-2xl font-black text-primary mb-3 group-hover:text-accent transition-colors duration-300">{facility.title}</h4>
                 <p className="text-muted-foreground text-[14px] leading-relaxed font-medium line-clamp-3 mb-6">{facility.description}</p>
