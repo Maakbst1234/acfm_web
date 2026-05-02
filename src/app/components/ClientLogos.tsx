@@ -42,8 +42,10 @@ export function ClientLogos() {
             display: flex;
             width: max-content;
           }
-          .marquee-container:hover .animate-marquee {
-            animation-play-state: paused;
+          @media (hover: hover) {
+            .marquee-container:hover .animate-marquee {
+              animation-play-state: paused;
+            }
           }
         `}} />
 
