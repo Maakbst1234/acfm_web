@@ -1,25 +1,7 @@
 import { motion } from 'motion/react';
+import clients from '../content/clients.json';
 
-const logos = [
-  'c_logo3.png',
-  'c_logo_1.png',
-  'c_logo_10.png',
-  'c_logo_11.png',
-  'c_logo_12.png',
-  'c_logo_13.png',
-  'c_logo_14.png',
-  'c_logo_16.png',
-  'c_logo_17.png',
-  'c_logo_18.png',
-  'c_logo_2.png',
-  'c_logo_4.png',
-  'c_logo_5.png',
-  'c_logo_6.png',
-  'c_logo_7.png',
-  'c_logo_8.png',
-  'c_logo_9.png',
-  'logo_15.png'
-];
+const logos = clients.logos;
 
 export function ClientLogos() {
   return (
@@ -78,7 +60,7 @@ export function ClientLogos() {
               className="w-48 md:w-60 h-28 shrink-0 flex items-center justify-center p-2 bg-white rounded-2xl shadow-sm border border-accent/10 hover:shadow-xl transition-all duration-500 cursor-pointer group/item"
             >
               <img
-                src={`/imports/client_logos/${logo}`}
+                src={logo.logo}
                 alt={`Client Logo ${index}`}
                 className="w-full h-full object-contain filter grayscale opacity-50 group-hover/item:grayscale-0 group-hover/item:opacity-100 transition-all duration-500"
               />

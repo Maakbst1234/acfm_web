@@ -1,13 +1,9 @@
 import { motion } from 'motion/react';
 import { CheckCircle, Target, Eye, ArrowRight } from 'lucide-react';
+import about from '../content/about.json';
 
 export function AboutSection() {
-  const points = [
-    "HACCP Certified Catering Operations",
-    "ADNOC Compliant Living Standards",
-    "24/7 Medical & Welfare Support",
-    "Integrated Smart Occupancy Management"
-  ];
+  const points = about.points;
 
   return (
     <section id="about" className="bg-white">
@@ -24,7 +20,7 @@ export function AboutSection() {
           >
             <div className="relative rounded-[40px] overflow-hidden shadow-2xl border-8 border-secondary">
               <img 
-                src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?q=80&w=1200&auto=format&fit=crop" 
+                src={about.image} 
                 alt="Facility Excellence" 
                 className="w-full h-[300px] md:h-[600px] object-cover"
               />
@@ -39,7 +35,7 @@ export function AboutSection() {
               transition={{ delay: 0.1, duration: 0.5 }}
               className="absolute -bottom-6 -right-6 md:-bottom-10 md:-right-10 bg-white p-6 md:p-8 rounded-[32px] shadow-2xl border border-accent/10 hidden sm:block"
             >
-              <p className="text-accent text-3xl md:text-5xl font-black mb-1">10+</p>
+              <p className="text-accent text-3xl md:text-5xl font-black mb-1">{about.experience}</p>
               <p className="text-primary font-bold leading-tight text-sm md:text-base">Years of<br />Excellence</p>
             </motion.div>
           </motion.div>
@@ -53,14 +49,14 @@ export function AboutSection() {
               transition={{ duration: 0.8 }}
             >
               <span className="inline-block px-4 py-1.5 rounded-full bg-accent/5 text-accent text-xs font-black uppercase tracking-widest mb-6">
-                The Smarter Way to House Your Team
+                {about.badge}
               </span>
               <h2 className="mb-6 text-primary">
-                Trusted by leading UAE companies to house, feed, and care for their teams.
+                {about.heading}
               </h2>
               <div className="space-y-6 text-muted-foreground leading-relaxed mb-8 max-w-xl">
                 <p>
-                  Arabian Comfort Facility Management is a premier corporate accommodation provider based in the UAE. We partner with companies across industries — including ADNOC contractors, construction firms, and major enterprises — to deliver fully managed, compliance-ready living facilities for their workforce.
+                  {about.body}
                 </p>
               </div>
 
@@ -83,7 +79,7 @@ export function AboutSection() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="p-6 md:p-8 rounded-[32px] bg-secondary border border-accent/5 italic text-muted-foreground line-height-relaxed text-sm md:text-base border-l-4 border-l-accent font-medium"
             >
-              "We don't just manage facilities. We create an environment where your people feel valued, rested, and ready to perform."
+              "{about.quote}"
             </motion.div>
           </div>
         </div>
@@ -102,9 +98,9 @@ export function AboutSection() {
             <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:bg-accent transition-all duration-500">
               <Target className="w-8 h-8 text-accent group-hover:text-white transition-colors" />
             </div>
-            <h3 className="text-2xl md:text-3xl font-black mb-4 text-primary group-hover:text-accent transition-colors">Our Mission</h3>
+            <h3 className="text-2xl md:text-3xl font-black mb-4 text-primary group-hover:text-accent transition-colors">{about.mission.title}</h3>
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-4 font-medium">
-              To provide UAE companies with the most reliable, compliant, and genuinely comfortable accommodation solution for their workforce. We take the complexity of camp management off your plate.
+              {about.mission.description}
             </p>
             <div className="mt-auto flex items-center gap-2 text-accent font-bold text-xs uppercase tracking-widest group-hover:translate-x-2 transition-transform duration-300">
               Reliability First <ArrowRight className="w-4 h-4" />
@@ -123,9 +119,9 @@ export function AboutSection() {
             <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:bg-accent transition-all duration-500">
               <Eye className="w-8 h-8 text-accent group-hover:text-white transition-colors" />
             </div>
-            <h3 className="text-2xl md:text-3xl font-black mb-4 text-primary group-hover:text-accent transition-colors">Our Vision</h3>
+            <h3 className="text-2xl md:text-3xl font-black mb-4 text-primary group-hover:text-accent transition-colors">{about.vision.title}</h3>
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-4 font-medium">
-              To be the most trusted name in corporate accommodation across the UAE — known for the dignity and warmth we bring to every resident's daily life.
+              {about.vision.description}
             </p>
             <div className="mt-auto flex items-center gap-2 text-accent font-bold text-xs uppercase tracking-widest group-hover:translate-x-2 transition-transform duration-300">
               Trusted Excellence <ArrowRight className="w-4 h-4" />

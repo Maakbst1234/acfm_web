@@ -1,0 +1,7 @@
+{
+  "items": [
+    { "number": "2500", "label": "Residents Served", "suffix": "+" },
+    { "number": "10", "label": "Major Projects", "suffix": "+" },
+    { "number": "98", "label": "Client Retention", "suffix": "%" }
+  ]
+}

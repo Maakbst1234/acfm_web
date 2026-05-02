@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, useScroll, useSpring } from "motion/react";
+import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+import contact from "./content/contact.json";
 import { LogoOpening } from "./components/LogoOpening";
 import { Hero } from "./components/Hero";
 import { StatsStrip } from "./components/StatsStrip";
@@ -14,7 +16,6 @@ import { RoomGallery } from "./components/RoomGallery";
 import { BenefitsSection } from "./components/BenefitsSection";
 import { EnquiryForm } from "./components/EnquiryForm";
 import { ClientLogos } from "./components/ClientLogos";
-import { ArrowRight, Mail, Phone, MapPin } from "lucide-react";
 
 export default function App() {
   const { scrollYProgress } = useScroll();
@@ -213,10 +214,20 @@ export default function App() {
 
               {/* Location Column */}
               <div>
-                <h4 className="text-white font-black uppercase tracking-widest text-xs mb-8">Headquarters</h4>
-                <div className="flex gap-4 items-start text-white/40 font-medium text-xs leading-loose">
-                  <MapPin className="w-5 h-5 text-accent shrink-0" />
-                  <p>ICAD, Industrial City <br /> Abu Dhabi, UAE <br /> PO Box: 12345</p>
+                <h4 className="text-white font-black uppercase tracking-widest text-xs mb-8">Get In Touch</h4>
+                <div className="space-y-6">
+                  <div className="flex gap-4 items-start text-white/40 font-medium text-xs leading-loose">
+                    <MapPin className="w-5 h-5 text-accent shrink-0" />
+                    <p>{contact.address}</p>
+                  </div>
+                  <div className="flex gap-4 items-center text-white/40 font-bold text-xs uppercase tracking-widest hover:text-accent transition-colors">
+                    <Phone className="w-4 h-4 text-accent" />
+                    <a href={`tel:${contact.phone}`}>{contact.phone}</a>
+                  </div>
+                  <div className="flex gap-4 items-center text-white/40 font-bold text-xs uppercase tracking-widest hover:text-accent transition-colors">
+                    <Mail className="w-4 h-4 text-accent" />
+                    <a href={`mailto:${contact.email}`}>{contact.email}</a>
+                  </div>
                 </div>
               </div>
             </div>

@@ -1,0 +1,36 @@
+{
+  "title": "A Full Spectrum of Care",
+  "subtitle": "Beyond just a bed, we provide a complete ecosystem of services to ensure your workforce stays healthy, happy, and productive.",
+  "items": [
+    {
+      "title": "Premium Accommodation",
+      "description": "Multi-category housing solutions compliant with ADNOC and international standards.",
+      "icon": "Home"
+    },
+    {
+      "title": "Industrial Catering",
+      "description": "HACCP certified kitchen operations delivering nutritious, multi-cultural meals 24/7.",
+      "icon": "Utensils"
+    },
+    {
+      "title": "On-site Medical",
+      "description": "Round-the-clock clinical support and emergency response coordination.",
+      "icon": "Activity"
+    },
+    {
+      "title": "Housekeeping & Laundry",
+      "description": "Professional janitorial services and automated laundry systems for hygiene excellence.",
+      "icon": "Sparkles"
+    },
+    {
+      "title": "24/7 Security",
+      "description": "CCTV monitoring and trained security personnel ensuring a safe living environment.",
+      "icon": "ShieldCheck"
+    },
+    {
+      "title": "HSE Compliance",
+      "description": "Rigorous health, safety, and environment protocols integrated into every operation.",
+      "icon": "ClipboardCheck"
+    }
+  ]
+}

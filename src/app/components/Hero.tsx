@@ -1,7 +1,9 @@
 import { motion, useScroll, useTransform, animate, useInView, useMotionValue } from 'motion/react';
-import { ArrowRight, Shield, CheckCircle2, Users } from 'lucide-react';
+import { ArrowRight, Shield } from 'lucide-react';
 import { useRef, useEffect } from 'react';
 import { Ribbons } from './Ribbons';
+import hero from '../content/hero.json';
+import statsData from '../content/stats.json';
 
 function CountUp({ to, suffix }: { to: number; suffix: string }) {
   const count = useMotionValue(0);
@@ -61,7 +63,7 @@ export function Hero() {
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/5 border border-accent/10 text-accent font-bold text-xs md:text-sm mb-8 whitespace-nowrap"
         >
           <Shield className="w-4 h-4" />
-          <span>UAE Premier Facility Management Partner</span>
+          <span>{hero.badge}</span>
         </motion.div>
 
         {/* Main Heading with Quote Type Font */}
@@ -81,8 +83,8 @@ export function Hero() {
               fontFamily: '"Cormorant Garamond", serif'
             }}
           >
-            Your Comfort <br />
-            <span className="text-accent italic font-medium">Our Commitment</span>
+            {hero.title1} <br />
+            <span className="text-accent italic font-medium">{hero.title2}</span>
           </h1>
 
           {/* Decorative Closing Quote */}
@@ -96,7 +98,7 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="text-muted-foreground text-lg md:text-2xl max-w-3xl mb-6 leading-relaxed text-center"
         >
-          Premium managed accommodation for corporate teams — fully compliant with UAE regulations, ADNOC standards, and ISO requirements. Because a well-rested team is a high-performing team.
+          {hero.subtitle}
         </motion.p>
 
         {/* Buttons */}
@@ -112,7 +114,7 @@ export function Hero() {
             onClick={() => document.getElementById('rooms')?.scrollIntoView({ behavior: 'smooth' })}
             className="w-full sm:w-auto px-10 py-5 bg-primary text-white font-bold rounded-2xl shadow-xl shadow-primary/20 flex items-center justify-center gap-3 text-lg"
           >
-            Explore Accommodation
+            {hero.ctaText}
             <ArrowRight className="w-5 h-5" />
           </motion.button>
           <motion.button
@@ -135,21 +137,39 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className="w-full max-w-5xl grid grid-cols-2 md:grid-cols-4 gap-6 py-8 px-6 bg-white/70 backdrop-blur-xl rounded-[32px] border border-accent/10 shadow-2xl relative z-20"
         >
-          {[
-            { value: 3500, suffix: '+', label: 'Residents', sub: 'Managed Daily' },
-            { value: 20, suffix: '+', label: 'Clients', sub: 'Partnered With' },
-            { value: 10, suffix: '+', label: 'Services', sub: 'Integrated' },
-            { value: 100, suffix: '%', label: 'UAE & ADNOC', sub: 'Compliant' }
-          ].map((stat, i) => (
+          {statsData.items.map((stat, i) => (
             <div key={i} className="flex flex-col items-center md:items-start text-center md:text-left border-accent/10 md:border-r last:border-0 md:px-4">
               <p className="text-3xl lg:text-4xl font-black text-accent mb-1 tracking-tighter">
-                <CountUp to={stat.value} suffix={stat.suffix} />
+                <CountUp to={parseInt(stat.number)} suffix={stat.suffix} />
               </p>
               <p className="font-bold text-primary uppercase tracking-widest text-[9px] mb-1">{stat.label}</p>
-              <p className="text-muted-foreground text-[10px] hidden lg:block">{stat.sub}</p>
+              <p className="text-muted-foreground text-[10px] hidden lg:block">{stat.sub || 'Partnered Excellence'}</p>
             </div>
           ))}
         </motion.div>
+      </div>
+
+      {/* Decorative Interactive Image with entrance and parallax */}
+      <div className="relative w-full max-w-7xl mx-auto px-6 mt-4 mb-4 z-0">
+        <motion.div
+          initial={{ opacity: 0, y: 120 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <motion.div 
+            style={{ y, opacity }}
+            className="w-full aspect-[21/9] min-h-[300px] rounded-[40px] overflow-hidden shadow-2xl border-[8px] md:border-[12px] border-secondary relative"
+          >
+            <img 
+              src={hero.backgroundImage} 
+              alt="Modern Facility" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-transparent" />
+          </motion.div>
+        </motion.div>
+      </div>
       </div>
 
       {/* Decorative Interactive Image with entrance and parallax */}

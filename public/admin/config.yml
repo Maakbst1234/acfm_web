@@ -1,0 +1,95 @@
+backend:
+  name: github
+  repo: sanjidtk/acfm_web
+  branch: main
+
+media_folder: public/images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: "settings"
+    label: "Global Settings"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "hero"
+        label: "Hero Section"
+        file: "src/content/hero.json"
+        fields:
+          - { label: "Badge", name: "badge", widget: "string" }
+          - { label: "Title Part 1", name: "title1", widget: "string" }
+          - { label: "Title Part 2 (Italic)", name: "title2", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "text" }
+          - { label: "CTA Button Text", name: "ctaText", widget: "string" }
+          - { label: "Background Image", name: "backgroundImage", widget: "image" }
+
+      - name: "stats"
+        label: "Statistics"
+        file: "src/content/stats.json"
+        fields:
+          - label: "Stats List"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Number", name: "number", widget: "string" }
+              - { label: "Label", name: "label", widget: "string" }
+
+      - name: "about"
+        label: "About Section"
+        file: "src/content/about.json"
+        fields:
+          - { label: "Badge", name: "badge", widget: "string" }
+          - { label: "Heading", name: "heading", widget: "string" }
+          - { label: "Body Text", name: "body", widget: "text" }
+          - { label: "Featured Image", name: "image", widget: "image" }
+          - { label: "Experience Years", name: "experience", widget: "string" }
+          - { label: "Quote", name: "quote", widget: "text" }
+          - label: "Key Points"
+            name: "points"
+            widget: "list"
+            field: { label: "Point", name: "point", widget: "string" }
+          - label: "Mission"
+            name: "mission"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+          - label: "Vision"
+            name: "vision"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+      - name: "services"
+        label: "Services Section"
+        file: "src/content/services.json"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "text" }
+          - label: "Service Items"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Icon Name", name: "icon", widget: "string", hint: "Lucide icon name (e.g. Home, Utensils, etc)" }
+
+      - name: "clients"
+        label: "Clients Section"
+        file: "src/content/clients.json"
+        fields:
+          - label: "Logos"
+            name: "logos"
+            widget: "list"
+            field: { label: "Logo Image", name: "logo", widget: "image" }
+
+      - name: "contact"
+        label: "Contact & Footer"
+        file: "src/content/contact.json"
+        fields:
+          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Address", name: "address", widget: "text" }
+          - { label: "Map Link", name: "mapLink", widget: "string" }
