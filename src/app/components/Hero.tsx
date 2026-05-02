@@ -170,29 +170,6 @@ export function Hero() {
           </motion.div>
         </motion.div>
       </div>
-      </div>
-
-      {/* Decorative Interactive Image with entrance and parallax */}
-      <div className="relative w-full max-w-7xl mx-auto px-6 mt-4 mb-4 z-0">
-        <motion.div
-          initial={{ opacity: 0, y: 120 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <motion.div 
-            style={{ y, opacity }}
-            className="w-full aspect-[21/9] min-h-[300px] rounded-[40px] overflow-hidden shadow-2xl border-[8px] md:border-[12px] border-secondary relative"
-          >
-            <img 
-              src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600&auto=format&fit=crop" 
-              alt="Modern Facility" 
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-transparent" />
-          </motion.div>
-        </motion.div>
-      </div>
     </div>
   );
 }
