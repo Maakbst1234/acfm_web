@@ -98,7 +98,7 @@ export function FacilityGrid() {
   }, []);
 
   return (
-    <div ref={containerRef} className="w-full flex flex-col justify-center py-6 bg-secondary/10">
+    <div ref={containerRef} className="relative w-full flex flex-col justify-center py-6 bg-secondary/10">
       {/* Integrated Header */}
       <div className="container-limited text-center mb-6">
         <span className="text-accent font-black uppercase tracking-widest text-[10px] mb-4 block">Our Facilities</span>
