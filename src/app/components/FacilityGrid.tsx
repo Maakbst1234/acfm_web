@@ -82,8 +82,8 @@ export function FacilityGrid() {
                 pin: true,
                 scrub: 1,
                 anticipatePin: 1,
-                // End is proportional to the scroll width
-                end: () => "+=" + (scrollWidth),
+                // End is proportional to the scroll width - increased for better control on mobile
+                end: () => "+=" + (scrollWidth * 1.5),
                 invalidateOnRefresh: true,
                 refreshPriority: 1
               }
