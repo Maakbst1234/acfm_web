@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { CheckCircle, Target, Eye, ArrowRight } from 'lucide-react';
-import about from '../content/about.json';
+import about from '../../content/about.json';
 
 export function AboutSection() {
   const points = about.points;

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, useScroll, useSpring } from "motion/react";
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
-import contact from "./content/contact.json";
+import contact from "../content/contact.json";
 import { LogoOpening } from "./components/LogoOpening";
 import { Hero } from "./components/Hero";
 import { StatsStrip } from "./components/StatsStrip";

@@ -2,8 +2,8 @@ import { motion, useScroll, useTransform, animate, useInView, useMotionValue } f
 import { ArrowRight, Shield } from 'lucide-react';
 import { useRef, useEffect } from 'react';
 import { Ribbons } from './Ribbons';
-import hero from '../content/hero.json';
-import statsData from '../content/stats.json';
+import hero from '../../content/hero.json';
+import statsData from '../../content/stats.json';
 
 function CountUp({ to, suffix }: { to: number; suffix: string }) {
   const count = useMotionValue(0);
@@ -137,7 +137,7 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className="w-full max-w-5xl grid grid-cols-2 md:grid-cols-4 gap-6 py-8 px-6 bg-white/70 backdrop-blur-xl rounded-[32px] border border-accent/10 shadow-2xl relative z-20"
         >
-          {statsData.items.map((stat, i) => (
+          {statsData.items.map((stat: any, i: number) => (
             <div key={i} className="flex flex-col items-center md:items-start text-center md:text-left border-accent/10 md:border-r last:border-0 md:px-4">
               <p className="text-3xl lg:text-4xl font-black text-accent mb-1 tracking-tighter">
                 <CountUp to={parseInt(stat.number)} suffix={stat.suffix} />

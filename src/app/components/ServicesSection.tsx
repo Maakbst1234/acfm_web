@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
-import servicesData from '../content/services.json';
+import servicesData from '../../content/services.json';
 import * as LucideIcons from 'lucide-react';
 
 const LucideIcon = ({ name, className }: { name: string; className?: string }) => {

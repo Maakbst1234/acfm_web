@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import clients from '../content/clients.json';
+import clients from '../../content/clients.json';
 
 const logos = clients.logos;
 
