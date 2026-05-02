@@ -1,7 +1,8 @@
 {
   "items": [
-    { "number": "2500", "label": "Residents Served", "suffix": "+" },
-    { "number": "10", "label": "Major Projects", "suffix": "+" },
-    { "number": "98", "label": "Client Retention", "suffix": "%" }
+    { "number": "3500", "label": "Residents Served", "suffix": "+" },
+    { "number": "8000", "label": "Daily Meals Provided", "suffix": "+" },
+    { "number": "100", "label": "Regulatory Compliance", "suffix": "%" },
+    { "number": "24", "label": "On-site Maintenance", "suffix": "/7" }
   ]
 }
