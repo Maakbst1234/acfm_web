@@ -64,34 +64,34 @@ collections:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Description", name: "description", widget: "text" }
 
-      - name: "services"
-        label: "Services Section"
-        file: "src/content/services.json"
+  - name: "services"
+    label: "Services Section"
+    file: "src/content/services.json"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Subtitle", name: "subtitle", widget: "text" }
+      - label: "Service Items"
+        name: "items"
+        widget: "list"
         fields:
           - { label: "Title", name: "title", widget: "string" }
-          - { label: "Subtitle", name: "subtitle", widget: "text" }
-          - label: "Service Items"
-            name: "items"
-            widget: "list"
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Description", name: "description", widget: "text" }
-              - { label: "Icon Name", name: "icon", widget: "string", hint: "Lucide icon name (e.g. Home, Utensils, etc)" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Icon Name", name: "icon", widget: "string", hint: "Lucide icon name (e.g. Home, Utensils, etc)" }
 
-      - name: "clients"
-        label: "Clients Section"
-        file: "src/content/clients.json"
-        fields:
-          - label: "Logos"
-            name: "logos"
-            widget: "list"
-            field: { label: "Logo Image", name: "logo", widget: "image" }
+  - name: "clients"
+    label: "Clients Section"
+    file: "src/content/clients.json"
+    fields:
+      - label: "Logos"
+        name: "logos"
+        widget: "list"
+        field: { label: "Logo Image", name: "logo", widget: "image" }
 
-      - name: "contact"
-        label: "Contact & Footer"
-        file: "src/content/contact.json"
-        fields:
-          - { label: "Phone", name: "phone", widget: "string" }
-          - { label: "Email", name: "email", widget: "string" }
-          - { label: "Address", name: "address", widget: "text" }
-          - { label: "Map Link", name: "mapLink", widget: "string" }
+  - name: "contact"
+    label: "Contact & Footer"
+    file: "src/content/contact.json"
+    fields:
+      - { label: "Phone", name: "phone", widget: "string" }
+      - { label: "Email", name: "email", widget: "string" }
+      - { label: "Address", name: "address", widget: "text" }
+      - { label: "Map Link", name: "mapLink", widget: "string" }
